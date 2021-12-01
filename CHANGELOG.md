@@ -3,3 +3,4 @@
 - Add required WordPress files theme
 - Add Vite and configuration
 - Load assets for prodution / development environments
+- Add Eslint
