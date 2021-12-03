@@ -14,6 +14,14 @@ export default defineConfig(({ command, mode }) => {
       ...settings,
       // dev specific config
       root: 'src',
+      resolve: {
+        alias: [
+          {
+            find: '@theme',
+            replacement: '../../../wp-content/themes/vite-wordpress/',
+          },
+        ]
+      },
       server: {
         strictPort: true,
         // https: true,
@@ -23,7 +31,15 @@ export default defineConfig(({ command, mode }) => {
     // command === 'build'
     return {
       ...settings,
-      base: '/',
+      base: './',
+      resolve: {
+        alias: [
+          {
+            find: '@theme',
+            replacement: './',
+          },
+        ]
+      },
       build: {
         manifest: true,
         outDir: 'dist/',
