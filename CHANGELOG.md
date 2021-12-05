@@ -4,3 +4,4 @@
 - Add Vite and configuration
 - Load assets for prodution / development environments
 - Add Eslint
+- Preloaded fonts

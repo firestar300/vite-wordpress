@@ -65,9 +65,9 @@ class Assets implements Service {
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 
 		if ( defined( 'WP_ENV' ) && 'development' === WP_ENV ) {
-			\wp_enqueue_script( 'ps-import-module-one-handle', 'http://localhost:3000/js/index.js', [], null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			\wp_enqueue_script( 'ps-import-module-one-handle', 'http://localhost:3000/js/main.js', [], null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		} elseif ( defined( 'WP_ENV' ) && 'production' === WP_ENV ) {
-			$this->assets_tools->register_script( 'scripts', 'dist/' . $this->get_asset_from_manifest( 'src/js/index.js', 'script' ), [ 'jquery' ], null, true );
+			$this->assets_tools->register_script( 'scripts', 'dist/' . $this->get_asset_from_manifest( 'src/js/main.js', 'script' ), [ 'jquery' ], null, true );
 		}
 	}
 
@@ -97,7 +97,7 @@ class Assets implements Service {
 	 */
 	public function stylesheet_uri( string $stylesheet_uri ): string {
 		if ( defined( 'WP_ENV' ) && 'production' === WP_ENV ) {
-			$file = $this->get_asset_from_manifest( 'src/js/index.js', 'style' );
+			$file = $this->get_asset_from_manifest( 'src/js/main.js', 'style' );
 
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
 				return \get_theme_file_uri( '/dist/' . $file );

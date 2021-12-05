@@ -4,6 +4,7 @@ namespace ViteWP\Theme;
 
 use ViteWP\Theme\Services\Assets;
 use ViteWP\Theme\Services\Assets_JS_Async;
+use ViteWP\Theme\Services\Fonts;
 use ViteWP\Theme\Services\Editor;
 use ViteWP\Theme\Services\Editor_Patterns;
 use ViteWP\Theme\Services\Menu;
@@ -32,6 +33,7 @@ class Framework {
 		Theme::class,
 		Assets::class,
 		Assets_JS_Async::class,
+		Fonts::class,
 		Editor::class,
 		Editor_Patterns::class,
 		Svg::class,

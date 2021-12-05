@@ -22,8 +22,7 @@ class Svg implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ): void {
-	}
+	public function boot( Service_Container $container ): void {}
 
 	/**
 	 * @return string
