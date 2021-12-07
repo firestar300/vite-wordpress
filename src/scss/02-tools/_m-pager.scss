@@ -1,0 +1,146 @@
+/**
+ * Pager
+ * generate the MMEC pager style : wp-pagenavi and facetwp pager
+ *
+ * exemple for wp-pagenavi :
+ *		.wp-pagenavi {
+ *			@include pager(
+ *				".previouspostslink",
+ *				".nextpostslink",
+ *				".page, .current, .extend",
+ *				".current",
+ *				".page"
+ *              ".extend"
+ *			);
+ *		}
+ */
+
+@mixin pager($prev, $next, $intermediate, $current, $hoverable, $hidden) {
+    width: 100%;
+    padding: 60px 0;
+    font-size: 18px;
+    text-align: center;
+
+    &:empty {
+        display: none;
+    }
+
+    * {
+        display: inline-block;
+        padding: 0 5px;
+        color: $global-color-secondary;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
+    #{$prev},
+    #{$next} {
+        font-size: 16px;
+        color: $palette-color-purple-dark;
+    }
+
+    #{$prev} {
+        &::before {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 19px;
+            line-height: 1;
+            vertical-align: middle;
+            content: "";
+            background-image: url("../img/static/arrow-left.svg");
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transition: transform .3s ease;
+        }
+
+        @include hover {
+            &::before {
+                transform: translate3d(-10px, 0, 0);
+            }
+        }
+    }
+
+    #{$next} {
+        &::after {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 19px;
+            line-height: 1;
+            vertical-align: middle;
+            content: "";
+            background-image: url("../img/static/arrow-right.svg");
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transition: transform .3s ease;
+        }
+
+        @include hover {
+            &::after {
+                transform: translate3d(10px, 0, 0);
+            }
+        }
+    }
+
+    #{$intermediate} {
+        padding: 5px 2px;
+        margin: 0 19px;
+        font-weight: 400;
+    }
+
+    #{$current} {
+        position: relative;
+        font-weight: 800;
+        color: $palette-color-purple-dark;
+
+        &::after {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            height: 2px;
+            content: "";
+            background: currentColor;
+        }
+    }
+
+    #{$hoverable} {
+        text-decoration: none;
+        cursor: pointer;
+
+        @include hover {
+            color: $palette-color-purple-dark;
+        }
+    }
+
+    #{$hidden} {
+        display: none;
+    }
+
+    @include breakpoints(xsm, max) {
+        #{$prev},
+        #{$next} {
+            span {
+                display: none;
+            }
+        }
+    }
+
+    @include breakpoints(md) {
+        position: relative;
+        padding: 80px 0 124px;
+        margin-right: auto;
+        margin-left: auto;
+
+        #{$prev} {
+            position: absolute;
+            left: 0;
+        }
+
+        #{$next} {
+            position: absolute;
+            right: 0;
+        }
+    }
+}

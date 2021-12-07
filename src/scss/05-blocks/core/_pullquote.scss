@@ -1,0 +1,36 @@
+.wp-block-pullquote {
+    padding-left: 0;
+    text-align: left;
+    border-top: none;
+    border-bottom: none;
+
+    blockquote {
+        margin: 0;
+    }
+
+    p {
+        padding-left: var(--global--spacing-vertical);
+        margin-bottom: 30px;
+        font-size: var(--blockquote--font-size);
+        font-weight: 700;
+        line-height: var(--blockquote--line-height);
+        border-left: 1px solid $color-gray-200;
+    }
+
+    cite {
+        font-size: var(--global--font-size-md);
+        font-weight: 700;
+        text-transform: none;
+    }
+
+    &.is-style-bold {
+        p {
+            font-style: normal;
+            font-weight: 700;
+        }
+    }
+
+    @include breakpoints(xsm) {
+        padding-right: column-px(1, 2);
+    }
+}

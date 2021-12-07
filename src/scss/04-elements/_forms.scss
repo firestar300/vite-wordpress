@@ -1,0 +1,57 @@
+// All inputs variables
+$text-inputs-list: 'input[type="color"]',
+    'input[type="date"]',
+    'input[type="datetime"]',
+    'input[type="datetime-local"]',
+    'input[type="email"]',
+    'input[type="month"]',
+    'input[type="number"]',
+    'input[type="password"]',
+    'input[type="search"]',
+    'input[type="tel"]',
+    'input[type="text"]',
+    'input[type="time"]',
+    'input[type="url"]',
+    'input[type="week"]',
+    "input:not([type])",
+    "textarea";
+
+$all-text-inputs:        assign-inputs($text-inputs-list);
+
+// Textarea
+textarea {
+    resize: vertical;
+}
+
+#{$all-text-inputs},
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: $ff-primary;
+    line-height: 1;
+    color: $color-secondary;
+    background: darken($color-light, 5%);
+    border: 1px solid $color-gray-500;
+    border-radius: 0; //reset border radius for ios
+    transition: border-color .5s ease;
+    appearance: none;
+
+    @include placeholder {
+        color: lighten($color-secondary, 50%);
+    }
+
+    &:hover {
+        border-color: darken($color-gray-500, 10%);
+    }
+
+    &:focus {
+        color: darken($color-secondary, 10%);
+        border-color: darken($color-gray-500, 20%);
+    }
+}
+
+// Label
+label {
+    display: inline-block;
+    font-weight: 700;
+}

@@ -1,0 +1,15 @@
+$styles: introduction;
+
+p {
+    line-height: var(--global--line-height);
+
+    &.has-background {
+        padding: 20px;
+    }
+
+    @each $style in $styles {
+        &.is-style-#{$style} {
+            @include paragraph($style);
+        }
+    }
+}

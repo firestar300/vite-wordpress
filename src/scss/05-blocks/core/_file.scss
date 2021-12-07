@@ -1,0 +1,30 @@
+.wp-block-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--global--spacing-horizontal) 0;
+    font-size: var(--global--font-size-md);
+    font-weight: 700;
+    border-bottom: 1px solid $color-gray-1200;
+
+    a.wp-block-file__button {
+        padding-right: 30px;
+        padding-left: 30px;
+
+        &:focus {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+        }
+    }
+}
+
+@include editor-only {
+    .wp-block-file {
+        .wp-block-file__content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

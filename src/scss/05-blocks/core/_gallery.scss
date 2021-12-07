@@ -1,0 +1,73 @@
+.blocks-gallery-item::before {
+    display: none !important;
+}
+
+.wp-block-gallery .blocks-gallery-item,
+.blocks-gallery-grid .blocks-gallery-item {
+    justify-content: flex-start;
+}
+
+.wp-block-gallery .blocks-gallery-image,
+.wp-block-gallery .blocks-gallery-item,
+.blocks-gallery-grid .blocks-gallery-image,
+.blocks-gallery-grid .blocks-gallery-item {
+    figure {
+        flex-wrap: wrap;
+        height: calc(100% - 35px);
+    }
+
+    figcaption {
+        position: static;
+        padding: 8px 0;
+        font-size: var(--global--font-size-xs);
+        font-style: italic;
+        color: var(--figcaption--color-primary);
+        text-align: left;
+        background: none;
+    }
+}
+
+.wp-block-gallery.columns-2 .blocks-gallery-image,
+.wp-block-gallery.columns-2 .blocks-gallery-item,
+.blocks-gallery-grid.columns-2 .blocks-gallery-image,
+.blocks-gallery-grid.columns-2 .blocks-gallery-item {
+    @include breakpoints(xsm) {
+        width: calc(50% - var(--global--spacing-vertical));
+        margin: 0 var(--global--spacing-vertical) var(--global--spacing-vertical) 0;
+
+        &:nth-of-type(2n),
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.wp-block-gallery.columns-3 .blocks-gallery-image,
+.wp-block-gallery.columns-3 .blocks-gallery-item,
+.blocks-gallery-grid.columns-3 .blocks-gallery-image,
+.blocks-gallery-grid.columns-3 .blocks-gallery-item {
+    @include breakpoints(xsm) {
+        width: calc(33.33% - var(--global--spacing-vertical));
+        margin: 0 var(--global--spacing-vertical) var(--global--spacing-vertical) 0;
+
+        &:nth-of-type(3n),
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.wp-block-gallery.columns-4 .blocks-gallery-image,
+.wp-block-gallery.columns-4 .blocks-gallery-item,
+.blocks-gallery-grid.columns-4 .blocks-gallery-image,
+.blocks-gallery-grid.columns-4 .blocks-gallery-item {
+    @include breakpoints(xsm) {
+        width: calc(25% - var(--global--spacing-vertical));
+        margin: 0 var(--global--spacing-vertical) var(--global--spacing-vertical) 0;
+
+        &:nth-of-type(4n),
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

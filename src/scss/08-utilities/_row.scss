@@ -1,0 +1,216 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--xsm {
+        @include breakpoints(xsm, max) {
+            flex-direction: column;
+        }
+
+        @include breakpoints(xsm) {
+            flex-direction: row;
+        }
+    }
+
+    &--sm {
+        @include breakpoints(sm, max) {
+            flex-direction: column;
+        }
+        
+        @include breakpoints(sm) {
+            flex-direction: row;
+        }
+    }
+
+    &--md {
+        @include breakpoints(md, max) {
+            flex-direction: column;
+        }
+        
+        @include breakpoints(md) {
+            flex-direction: row;
+        }
+    }
+
+    &--lg {
+        @include breakpoints(lg, max) {
+            flex-direction: column;
+        }
+        
+        @include breakpoints(lg) {
+            flex-direction: row;
+        }
+    }
+
+    &--full {
+        display: block;
+    }
+
+    &--jc-end {
+        justify-content: flex-end;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                justify-content: flex-end;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                justify-content: flex-end;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                justify-content: flex-end;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &--jc-center {
+        justify-content: center;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                justify-content: center;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                justify-content: center;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                justify-content: center;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                justify-content: center;
+            }
+        }
+    }
+
+    &--jc-space-between {
+        justify-content: space-between;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                justify-content: space-between;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                justify-content: space-between;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                justify-content: space-between;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &--ai-start {
+        align-items: flex-start;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                align-items: start;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                align-items: start;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                align-items: start;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                align-items: start;
+            }
+        }
+    }
+
+    &--ai-end {
+        align-items: flex-end;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                align-items: end;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                align-items: end;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                align-items: end;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                align-items: end;
+            }
+        }
+    }
+
+    &--ai-center {
+        align-items: center;
+
+        &-xsm {
+            @include breakpoints(xsm) {
+                align-items: center;
+            }
+        }
+
+        &-sm {
+            @include breakpoints(sm) {
+                align-items: center;
+            }
+        }
+
+        &-md {
+            @include breakpoints(md) {
+                align-items: center;
+            }
+        }
+
+        &-lg {
+            @include breakpoints(lg) {
+                align-items: center;
+            }
+        }
+    }
+}

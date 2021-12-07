@@ -1,0 +1,208 @@
+/**
+ * Button
+ */
+
+@mixin button {
+    display: inline-block;
+    padding: 9px 18px;
+    overflow: hidden;
+    font-family: $ff-primary;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.75;
+    color: $color-light;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $color-purple-dark;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: transform .6s ease;
+    appearance: none;
+
+    @include hover {
+        transform: scale(1.1);
+    }
+
+    &:focus {
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 3px;
+    }
+
+    @include breakpoints(sm) {
+        padding: 9px 41px;
+        font-size: 16px;
+    }
+}
+
+@mixin button-animation {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+        @include pseudo-content;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        width: 0;
+        padding-bottom: 0;
+        background-color: $color-purple-dark;
+        border-radius: 50%;
+        opacity: 0;
+        transition: background-color .3s ease, opacity .3s ease, width 0s .3s ease, padding-bottom 0s .3s ease;
+        transform: translate3d(-50%, -50%, 0);
+    }
+
+    @include hover {
+        color: $color-purple-dark;
+    }
+
+    &:hover::before {
+        width: 120%;
+        padding-bottom: 120%;
+        background-color: $color-light;
+        opacity: 1;
+        transition: opacity .3s ease, width .6s ease, padding-bottom .6s ease;
+    }
+
+    &:focus::before {
+        width: 120%;
+        padding-bottom: 120%;
+        background-color: $color-light;
+        opacity: 1;
+    }
+
+    &:not(.has-background) {
+        border-color: $color-light;
+    }
+
+    @each $name, $color in $palette {
+        // Gutenberg text color options
+        &.has-#{$name}-color[class] {
+            color: $color;
+            border-color: $color;
+
+            &::before {
+                background-color: $color;
+            }
+        }
+        
+        &.has-#{$name}-background-color[class] {
+            background-color: $color;
+
+            @include hover {
+                color: $color;
+            }
+        }
+    }
+}
+
+// Sizing
+
+@mixin button-xs {
+    font-size: 9px;
+}
+
+@mixin button-sm {
+    font-size: 12px;
+}
+
+@mixin button-lg {
+    font-size: 18px;
+}
+
+@mixin button-expand {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+}
+
+// Coloring
+
+@mixin button-colored($backgroundColor, $color) {
+    color: $color;
+    background-color: $backgroundColor;
+
+    @include hover {
+        color: $color;
+        background-color: darken($backgroundColor, 10%);
+    }
+}
+
+// Outline style
+
+@mixin button-outline($borderColor: $color-gray-500, $color: $global-color-secondary) {
+    color: $color;
+    background-color: transparent;
+    border-color: $borderColor;
+    border-width: 1px; // Force button width VS Gutenberg CSS
+
+    @include hover {
+        background-color: transparent;
+        border-color: darken($borderColor, 10%);
+    }
+}
+
+// Border Radius
+
+@mixin button-round {
+    border-radius: $base-border-radius;
+}
+
+@mixin button-circle($size: 50px) {
+    width: $size;
+    height: $size;
+    padding: 0;
+    line-height: $size;
+    text-align: center;
+    border-radius: $size;
+}
+
+// State style
+
+@mixin button-disabled($backgroundColor: $color-gray-500) {
+    cursor: not-allowed;
+    opacity: .3;
+
+    @include hover {
+        background-color: $backgroundColor;
+    }
+}
+
+// Text style
+
+@mixin button-text {
+    padding: 0;
+    font-family: $ff-primary;
+    font-size: inherit;
+    font-weight: 400;
+    color: inherit;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    appearance: none;
+
+    &::before {
+        display: none;
+    }
+
+    @include hover {
+        color: inherit;
+        text-decoration: underline;
+        background-color: transparent;
+        border: none;
+        transform: none;
+    }
+}
+
+// Button icon
+
+@mixin button-icon {
+    padding: 10px 11px;
+}

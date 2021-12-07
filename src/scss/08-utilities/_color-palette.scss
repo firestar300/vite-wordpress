@@ -1,0 +1,43 @@
+@each $name, $color in $palette {
+    // Gutenberg text color options
+    .has-#{$name}-color[class] {
+        color: $color;
+    }
+    
+    .has-#{$name}-background-color[class] {
+        background-color: $color;
+    }
+}
+
+// Gutenberg background-color options
+.has-background {
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: currentColor;
+    }
+}
+
+:not(.has-text-color) {
+    &.has-black-background-color[class],
+    &.has-dark-gray-background-color[class],
+    &.has-purple-dark-background-color[class] {
+        color: $color-light;
+    }
+
+    &.has-gray-background-color[class],
+    &.has-green-background-color[class],
+    &.has-blue-background-color[class],
+    &.has-purple-background-color[class],
+    &.has-red-background-color[class],
+    &.has-orange-background-color[class],
+    &.has-yellow-background-color[class],
+    &.has-white-background-color[class] {
+        color: $color-primary;
+    }
+}

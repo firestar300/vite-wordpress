@@ -1,0 +1,123 @@
+.wp-block-search__button,
+.wp-block-button .wp-block-button__link,
+.wp-block-file .wp-block-file__button {
+    @include button;
+}
+
+@include style-only {button,
+    input[type="submit"],
+    input[type="reset"],
+    .button {
+        @include button;
+    }
+}
+
+button,
+.wp-block-search__button,
+.wp-block-button .wp-block-button__link {
+    @include style-only {
+        @include button-animation;
+    }
+
+    &.is-style-rounded {
+        border-radius: 50px;
+    }
+}
+
+.wp-block-button .wp-block-button__link:hover {
+    text-decoration: none;
+}
+
+button.button--text,
+.button.button--text {
+    @include button-text;
+}
+
+.is-style-rounded,
+.wp-block-button.is-style-rounded .wp-block-button__link {
+    border-radius: 50px;
+}
+
+.wp-block-button.is-style-label .wp-block-button__link {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    pointer-events: none;
+    border: 1px solid currentColor;
+    border-radius: 20px;
+}
+
+.wp-block-buttons {
+    gap: 20px;
+}
+
+.wp-block-buttons > .wp-block-button.has-custom-font-size .wp-block-button__link,
+.wp-block-button.has-custom-font-size .wp-block-button__link {
+    font-size: inherit;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+    border: 1px solid currentColor;
+}
+
+.wp-block-button.has-extra-small-font-size .wp-block-button__link {
+    padding: 5px 24px;
+}
+
+.wp-block-buttons > .wp-block-button.wp-block-button__width-25 {
+    min-width: 200px;
+}
+
+@include breakpoints(xsm, max) {
+    .wp-block-buttons > .wp-block-button.wp-block-button__width-25 {
+        width: calc(50% - .375em);
+    }
+}
+
+@include breakpoints(sm, max) {
+    .wp-block-buttons {
+        &.is-content-justification-right {
+            justify-content: flex-start;
+        }
+    }
+}
+
+@include editor-only {
+    .wp-block-button__link {
+        @include button;
+
+        @each $name, $color in $palette {
+            // Gutenberg text color options
+            &.has-#{$name}-color[class] {
+                color: $color;
+                border-color: $color;
+            }
+        }
+    }
+
+    /**
+     * Block Options
+     */
+
+    // The parent container does not need outer margins applied.
+    // The children should all have top and bottom margins.
+    [data-block].wp-block-buttons {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        .wp-block-button:first-child {
+            margin-top: var(--global--spacing-vertical);
+        }
+
+        .wp-block-button:last-child {
+            margin-bottom: var(--global--spacing-vertical);
+        }
+    }
+
+    .is-style-outline .wp-block-button__link[style*="radius"],
+    .wp-block-button__link[style*="radius"] {
+        outline-offset: 2px;
+    }
+}

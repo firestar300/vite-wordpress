@@ -1,1 +1,127 @@
-// foo
+$column-preset: (
+    /* preset for desktop */
+    d : (
+        columnwidth: 71,
+        gutterwidth: 36,
+        totalcolumn: 12
+    ),
+    /* preset for mobile */
+    m : (
+        columnwidth: 80,
+        gutterwidth: 38,
+        totalcolumn: 3
+    )
+);
+$external-gutter: 25px;
+
+// ==========
+// Colors
+// ==========
+// ----
+// Theme colors
+// ----
+$color-primary: #111;
+$color-secondary: #2f2b28;
+$color-bg-primary: #fff;
+$color-bg-secondary: #f9f0f0;
+
+// ----
+// Gray palette
+// ----
+$color-dark: #000;
+$color-gray-100: #111;
+$color-gray-200: #2f2b28;
+$color-gray-300: #333;
+$color-gray-400: #444;
+$color-gray-500: #505050;
+$color-gray-600: #606060;
+$color-gray-700: #777;
+$color-gray-800: #888;
+$color-gray-900: #999;
+$color-gray-1000: #aaa;
+$color-gray-1100: #bbb;
+$color-gray-1200: #c6c6c6;
+$color-gray-1300: #ddd;
+$color-gray-1400: #eff0f0;
+$color-gray-1500: #f6f7f9;
+$color-light: #fff;
+
+// ----
+// Color palette
+// ----
+$color-purple-dark: #391fa8;
+$color-purple: #b09aff;
+$color-purple-light: #dbd8ff;
+$color-yellow-dark: #ffe100;
+$color-yellow: #fff280;
+$color-yellow-light: #fffacc;
+$color-blue-dark: #19e7e0;
+$color-blue: #9de4e2;
+$color-blue-light: #c4ecea;
+$color-orange-dark: #fa6749;
+$color-orange: #fd917a;
+$color-orange-light: #f1b9ad;
+
+// Palette is defined in /inc/Services/Editor.php
+$palette: (
+    "purple-dark": $color-purple-dark,
+    "purple": $color-purple,
+    "purple-light": $color-purple-light,
+    "yellow-dark": $color-yellow-dark,
+    "yellow": $color-yellow,
+    "yellow-light": $color-yellow-light,
+    "blue-dark": $color-blue-dark,
+    "blue": $color-blue,
+    "blue-light": $color-blue-light,
+    "orange-dark": $color-orange-dark,
+    "orange": $color-orange,
+    "orange-light": $color-orange-light,
+    "black": $color-secondary,
+    "gray": $color-gray-1400,
+    "white": $color-light,
+    "transparent": transparent,
+);
+
+// ==========
+// Fonts
+// ==========
+// ----
+// Font Family
+// ----
+$ff-primary: "poppins";
+
+// ----
+// Spacing
+// ----
+$base-spacing: column-px(0, 1);
+
+:root {
+    /*
+     * Colors
+     */
+
+    // Global
+    --global--font-size-base: 14px;
+
+    /*
+     * Fonts
+     */
+
+    // Global
+    --global--font-primary: #{$ff-primary};
+
+    // Heading
+    --heading--font-family: #{$ff-primary};
+
+    /*
+     * Font Size
+     */
+    --global--color-primary: #{$color-primary};
+
+    @media screen and (min-width: 1024px) {
+        /*
+         * Font Size
+         */
+        --global--font-size-base: 16px;
+    }
+}
