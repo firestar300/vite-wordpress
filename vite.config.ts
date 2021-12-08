@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import ViteFS from 'vite-fs'
 import liveReload from 'vite-plugin-live-reload'
 import eslintPlugin from 'vite-plugin-eslint';
 import path from 'path'
@@ -11,6 +12,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       liveReload(`${__dirname}/**/*\.php`),
       eslintPlugin(),
+      ViteFS()
     ],
   }
 

@@ -5,8 +5,15 @@ if (import.meta.env.MODE !== 'development') {
 }
 
 import '../scss/style.scss'
+import lazySizes from 'lazysizes'
+import 'lazysizes/plugins/native-loading/ls.native-loading'
+import 'lazysizes/plugins/object-fit/ls.object-fit'
+import 'what-input'
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+/**
+ * LazySizes configuration
+ * https://github.com/aFarkas/lazysizes/#js-api---options
+ */
+lazySizes.cfg.nativeLoading = {
+  setLoadingAttribute: false,
+}
