@@ -1,0 +1,83 @@
+// Front Office
+
+.entry-content:not(:empty) {
+    padding: 80px 0;
+
+    > .wp-block-group.has-background {
+        &:first-child {
+            margin-top: -80px;
+        }
+        
+        &:last-child {
+            margin-bottom: -80px;
+        }
+    }
+}
+
+.post-thumbnail,
+.entry-content .wp-audio-shortcode,
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not([data-align="wide"]):not([data-align="full"]):not(.wp-block-separator):not(.woocommerce):not(.social-share):not(.wp-block-beapi-dynamic-block),
+*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not([data-align="wide"]):not([data-align="full"]):not(.wp-block-separator):not(.woocommerce):not(.social-share):not(.wp-block-beapi-dynamic-block),
+.default-max-width {
+    max-width: var(--responsive--aligndefault-width);
+    margin-right: auto;
+    margin-left: auto;
+
+    @include breakpoints(sm, max) {
+        &.wp-block-cover[class*="-background-color"] {
+            max-width: none;
+        }
+    }
+}
+
+@include style-only {
+    .entry-content > .wp-block-beapi-dynamic-block {
+        max-width: var(--responsive--alignwide-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce) {
+    [class*="-background-color"] & {
+        @include breakpoints(sm, max) {
+            max-width: none;
+        }
+    }
+}
+
+.alignfull [class*=inner-container] > .alignwide,
+.alignwide [class*=inner-container] > .alignwide {
+    width: var(--responsive--alignwide-width);
+    max-width: var(--responsive--alignfull-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.alignwide,
+.wide-max-width {
+    max-width: var(--responsive--alignwide-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// Editor
+
+@include editor-only {
+    .wp-block {
+        max-width: var(--responsive--aligndefault-width);
+
+        &[data-align="wide"],
+        .alignwide,
+        &.wp-block-beapi-dynamic-block,
+        &.wp-block-acf-image-text {
+            max-width: var(--responsive--alignwide-width);
+        }
+
+        &[data-align="full"],
+        .alignfull,
+        .wp-block-beapi-dynamic-block.wp-block-beapi-dynamic--carousel {
+            max-width: none;
+        }
+    }
+}

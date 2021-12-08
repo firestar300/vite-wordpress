@@ -1,0 +1,26 @@
+a {
+    color: var(--global--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@include editor-only {
+    .wp-block.has-text-color a,
+    .wp-block.has-text-color a:not([class]) {
+        color: inherit;
+    }
+}
+
+// Enforce the custom link color even if a custom background color has been set.
+// The extra specificity here is required to override the background color styles.
+.has-background {
+    // Target both current level and nested block.
+    .has-link-color a,
+    &.has-link-color a {
+        color: var(--global--color-primary);
+    }
+}

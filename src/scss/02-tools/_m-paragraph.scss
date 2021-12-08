@@ -1,0 +1,5 @@
+@mixin paragraph($style) {
+    @if $style == introduction {
+        font-weight: 600;
+    }
+}

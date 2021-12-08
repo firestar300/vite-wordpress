@@ -1,0 +1,8 @@
+/**
+ * Strip hashtag
+ */
+ 
+@function stripe-hashtag($color) {
+
+    @return str-slice(inspect($color), 2);
+}

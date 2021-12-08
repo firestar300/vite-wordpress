@@ -1,0 +1,32 @@
+.entry-content > *:not(.wp-block-spacer),
+[class*="inner-container"] > *:not(.wp-block-spacer) {
+    margin-top: calc(1.25 * var(--global--spacing-horizontal));
+    margin-bottom: calc(1.25 * var(--global--spacing-horizontal));
+ 
+    &:first-child {
+        margin-top: 0;
+    }
+ 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.alignleft,
+    &.alignright,
+    &.alignleft:first-child + *,
+    &.alignright:first-child + *,
+    &.alignfull.has-background {
+        margin-top: 0;
+    }
+ 
+    &:last-child,
+    &.alignfull.has-background {
+        margin-bottom: 0;
+    }
+ 
+    /* Reset alignleft and alignright margins after alignfull */
+    &.alignfull + .alignleft,
+    &.alignfull + .alignright {
+        margin-top: var(--global--spacing-horizontal);
+    }
+}

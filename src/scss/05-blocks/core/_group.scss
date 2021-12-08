@@ -1,0 +1,29 @@
+.wp-block-group {
+    display: flow-root;
+
+    &.has-background {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    &.has-background-image-book {
+        background-image: url("../img/static/ebook.svg");
+        background-repeat: no-repeat;
+        background-position: 140% 50%;
+        background-size: 75%;
+    }
+
+    @include editor-only {
+        .wp-block-group.has-background > .block-editor-block-list__layout > [data-align="full"] {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    @include breakpoints(sm) {
+        &.has-background-image-book {
+            background-position: 50% 80px;
+            background-size: auto;
+        }
+    }
+}
